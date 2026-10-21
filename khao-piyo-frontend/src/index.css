@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+/* Makes every dark: utility follow the .dark class that ThemeContext toggles */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --c-bg: #f8f4f0;
+  --c-surface: #ffffff;
+  --c-ink: #1c1618;
+  --c-muted: #6b6166;
+  --c-line: #e9e1dc;
+  --c-brand: #c82d1e;
+  --c-brand-2: #ee6a2b;
+  color-scheme: light;
+}
+.dark {
+  --c-bg: #14101a;
+  --c-surface: #1e1826;
+  --c-ink: #f5f0f2;
+  --c-muted: #a399a8;
+  --c-line: #322b3c;
+  --c-brand: #e0402a;
+  --c-brand-2: #f5883a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-line: var(--c-line);
+  --color-brand: var(--c-brand);
+  --color-brand-2: var(--c-brand-2);
+  --color-turmeric: #f2b632;
+
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  --animate-slide-in-left: slide-in-left 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-slide-in-right: slide-in-right 0.7s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-slide-down: slide-down 0.2s ease-out both;
+  --animate-pop: pop 0.3s ease-out;
+}
+
+@keyframes slide-in-left { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slide-in-right { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slide-down { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.35); } 100% { transform: scale(1); } }
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-bg font-sans text-ink antialiased transition-colors duration-300; }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5
+      text-sm font-semibold transition duration-200 ease-out active:scale-95
+      focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+  }
+  .btn-primary {
+    @apply bg-linear-to-r from-brand to-brand-2 text-white shadow-lg shadow-brand/25
+      hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/35 active:translate-y-0;
+  }
+  .btn-outline {
+    @apply border border-line bg-surface text-ink shadow-sm hover:-translate-y-0.5 hover:border-brand/40 hover:text-brand hover:shadow-md active:translate-y-0;
+  }
+  .btn-ghost { @apply text-ink hover:bg-ink/5; }
+
+  .icon-btn {
+    @apply relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line bg-surface
+      text-ink shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-brand/40 hover:text-brand hover:shadow-md
+      active:translate-y-0 active:scale-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-ink placeholder:text-muted
+      transition focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30;
+  }
+  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

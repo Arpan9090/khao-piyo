@@ -1,0 +1,25 @@
+# --- Spring Boot Backend ---
+khao-piyo/target/
+khao-piyo/.mvn/
+khao-piyo/uploads/
+khao-piyo/src/main/resources/application.properties
+*.class
+*.log
+
+# --- Frontend & Admin Panel (Node / Vite) ---
+**/node_modules/
+**/dist/
+**/dist-ssr/
+*.local
+
+# --- Environment Files ---
+.env
+.env.*
+!.env.example
+
+# --- IDE & OS Files ---
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db

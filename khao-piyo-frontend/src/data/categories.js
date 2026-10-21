@@ -1,0 +1,26 @@
+// Put your photos in /public/categories/<file>.png — until then the emoji is shown.
+// The `name` must match the `category` value you store for each food in your DB.
+export const categories = [
+  { name: 'Biryani', image: '/categories/biryani.png', emoji: '🍛' },
+  { name: 'Pizza', image: '/categories/pizza.png', emoji: '🍕' },
+  { name: 'Burger', image: '/categories/burger.png', emoji: '🍔' },
+  { name: 'North Indian', image: '/categories/north-indian.png', emoji: '🍲' },
+  { name: 'South Indian', image: '/categories/south-indian.png', emoji: '🥘' },
+  { name: 'Dosa', image: '/categories/dosa.png', emoji: '🫓' },
+  { name: 'Thali', image: '/categories/thali.png', emoji: '🍱' },
+  { name: 'Chinese', image: '/categories/chinese.png', emoji: '🥡' },
+  { name: 'Noodles', image: '/categories/noodles.png', emoji: '🍜' },
+  { name: 'Momos', image: '/categories/momos.png', emoji: '🥟' },
+  { name: 'Rolls', image: '/categories/rolls.png', emoji: '🌯' },
+  { name: 'Sandwich', image: '/categories/sandwich.png', emoji: '🥪' },
+  { name: 'Pav Bhaji', image: '/categories/pav-bhaji.png', emoji: '🍞' },
+  { name: 'Chole Bhature', image: '/categories/chole-bhature.png', emoji: '🥙' },
+  { name: 'Paratha', image: '/categories/paratha.png', emoji: '🫔' },
+  { name: 'Pasta', image: '/categories/pasta.png', emoji: '🍝' },
+  { name: 'Salad', image: '/categories/salad.png', emoji: '🥗' },
+  { name: 'Desserts', image: '/categories/desserts.png', emoji: '🍮' },
+  { name: 'Cakes', image: '/categories/cakes.png', emoji: '🍰' },
+  { name: 'Ice Cream', image: '/categories/ice-cream.png', emoji: '🍨' },
+  { name: 'Shakes', image: '/categories/shakes.png', emoji: '🥤' },
+  { name: 'Beverages', image: '/categories/beverages.png', emoji: '☕' },
+];
